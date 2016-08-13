@@ -1,6 +1,7 @@
 package com.muz.androidtraining.activities;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.muz.androidtraining.R;
@@ -38,29 +40,32 @@ public class SnackbarActivity extends AppCompatActivity {
         btAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(llMain, "This is a snackbar with action", Snackbar.LENGTH_LONG)
-                        .setAction("OK", new View.OnClickListener() {
+                Snackbar snackbar2 = Snackbar.make(llMain, "Message is deleted", Snackbar.LENGTH_LONG)
+                        .setAction("UNDO", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(activity, "OK", Toast.LENGTH_SHORT).show();
+                                Snackbar snackbar2 = Snackbar.make(llMain, "Message is restored!", Snackbar.LENGTH_SHORT);
+                                snackbar2.show();
                             }
-                        })
-                        .show();
+                        });
+                snackbar2.show();
             }
         });
 
         btCustom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(llMain, "This is a custom snackbar", Snackbar.LENGTH_LONG)
-                        .setAction("OK", new View.OnClickListener() {
+                Snackbar snackbar3 = Snackbar.make(llMain, "No Internet connection!", Snackbar.LENGTH_LONG)
+                        .setAction("RETRY", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(activity, "OK", Toast.LENGTH_SHORT).show();
                             }
-                        })
-                        .setActionTextColor(getResources().getColor(R.color.green))
-                        .setDuration(100).show();
+                        });
+                snackbar3.setActionTextColor(Color.RED);
+                View sbView = snackbar3.getView();
+                TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+                textView.setTextColor(Color.YELLOW);
+                snackbar3.show();
             }
         });
 
