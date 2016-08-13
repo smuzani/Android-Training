@@ -38,8 +38,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initListView(){
-        links.add(new MainMenuLink("Lesson 1-3: Action Bar, Menu", ToolbarMenuActivity.class));
-        links.add(new MainMenuLink("Lesson 4: Snackbar", SnackbarActivity.class));
-        links.add(new MainMenuLink("Lesson 5: Floating Action Button", FabActivity.class));
+        links.add(new MainMenuLink("Lesson 1.1-3: Action Bar, Menu", ToolbarMenuActivity.class));
+        links.add(new MainMenuLink("Lesson 1.4: Snackbar", SnackbarActivity.class));
+        links.add(new MainMenuLink("Lesson 1.5: Floating Action Button", FabActivity.class));
+        links.add(new MainMenuLink("Lesson 2.1: Navigation Drawer", NavDrawerActivity.class));
     }
 }
