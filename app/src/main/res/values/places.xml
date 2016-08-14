@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="places">
+        <item>Kuala Lumpur</item>
+        <item>Putrajaya</item>
+        <item>Batu Caves</item>
+    </string-array>
+    <string-array name="place_desc">
+        <item>Kuala Lumpur is the capital of Malaysia, also known as KL by locals.</item>
+        <item>Putrajaya is a planned city and federal administration in Malaysia.</item>
+        <item>Batu Caves is a limestoll hill that has a series of caves and cave temple in Gombak, Selangor</item>
+    </string-array>
+    <array name="places_picture">
+        <item>@drawable/kuala_lumpur</item>
+        <item>@drawable/putrajaya</item>
+        <item>@drawable/batu_caves</item>
+    </array>
+</resources>

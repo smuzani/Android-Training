@@ -9,5 +9,5 @@
         android:layout_height="match_parent"
         android:text="Hello Tile Fragment"
         android:gravity="center"
-        style="@style/TextAppearance.AppCompat.Headline"/>
+        style="text"/>
 </FrameLayout>
