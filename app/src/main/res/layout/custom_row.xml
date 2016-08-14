@@ -28,10 +28,9 @@
             android:paddingLeft="16dp"
             tools:text="Kuala Lumpur"
             android:gravity="center_vertical"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@color/white"
             android:background="@color/semitransgrey"
-            style="@style/TextAppearance.AppCompat.Large"
+            style="@style/TextAppearance.AppCompat.Medium"
             />
         <TextView
             android:id="@+id/card_text"
