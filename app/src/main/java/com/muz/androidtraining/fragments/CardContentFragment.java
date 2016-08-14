@@ -68,7 +68,7 @@ public class CardContentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_card_content, container, false);
+        RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_recycler, container, false);
         ContentAdapter adapter = new ContentAdapter(getActivity());
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
