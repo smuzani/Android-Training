@@ -33,7 +33,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.TabbedActivity"></activity>
+        <activity android:name=".activities.TabbedActivity" />
+        <activity android:name=".activities.DetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.MainActivity" />
+        </activity>
+        <activity android:name=".activities.NotificationActivity"></activity>
     </application>
 
 </manifest>

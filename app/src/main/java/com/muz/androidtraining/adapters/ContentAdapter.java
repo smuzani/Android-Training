@@ -57,6 +57,8 @@ public class ContentAdapter extends RecyclerView.Adapter<CardViewHolder> {
         holder.picture.setImageDrawable(mPlacePictures[position % mPlacePictures.length]);
         holder.name.setText(mPlaces[position % mPlaces.length]);
         holder.description.setText(mPlaceDesc[position % mPlaceDesc.length]);
+        holder.stringDesc = mPlaceDesc[position % mPlaceDesc.length];
+        holder.position = position;
     }
 
     @Override
