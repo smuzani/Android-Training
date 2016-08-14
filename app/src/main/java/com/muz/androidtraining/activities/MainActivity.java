@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         links.add(new MainMenuLink("Lesson 1.4: Snackbar", SnackbarActivity.class));
         links.add(new MainMenuLink("Lesson 1.5: Floating Action Button", FabActivity.class));
         links.add(new MainMenuLink("Lesson 2.1-2.2: Navigation Drawer & Back", NavDrawerActivity.class));
-        links.add(new MainMenuLink("Lesson 2.3: Tabs", TabbedActivity.class));
+        links.add(new MainMenuLink("Lesson 2.3-2.4: Tabs & CardView", TabbedActivity.class));
 //        links.add(new MainMenuLink("Lesson 2.4: CardView and RecyclerView", TabbedActivity.class));
     }
 }
