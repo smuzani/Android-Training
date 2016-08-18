@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         links.add(new MainMenuLink("Lesson 2.3-2.5: Tabs, CardView, & Transition", TabbedActivity.class));
         links.add(new MainMenuLink("Lesson 2.6: Notification", NotificationActivity.class));
         links.add(new MainMenuLink("Lesson 3.2: Maps", MapsActivity.class));
-        links.add(new MainMenuLink("Lesson 3.5: Firebase Signup", SignUpActivity.class));
+        links.add(new MainMenuLink("Lesson 3.5: Firebase Signup", FirebaseSignUpActivity.class));
+        links.add(new MainMenuLink("Lesson 3.6: Firebase Login", FirebaseLoginActivity.class));
     }
 }

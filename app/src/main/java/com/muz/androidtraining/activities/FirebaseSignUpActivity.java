@@ -1,5 +1,6 @@
 package com.muz.androidtraining.activities;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +16,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.muz.androidtraining.R;
 
-public class SignUpActivity extends AppCompatActivity {
+public class FirebaseSignUpActivity extends AppCompatActivity {
 
     Button btSignup, btForgot, btLogin;
     TextInputEditText etPassword, etEmail;
@@ -41,16 +42,31 @@ public class SignUpActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
                 auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (!task.isSuccessful()){
-                            Toast.makeText(SignUpActivity.this, "Authentication failed: " + task.getException(), Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(SignUpActivity.this, "Authentication success", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                        .addOnCompleteListener(FirebaseSignUpActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (!task.isSuccessful()) {
+                                    Toast.makeText(FirebaseSignUpActivity.this, "Authentication failed: " + task.getException(), Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(FirebaseSignUpActivity.this, "Authentication success", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+            }
+        });
+
+        btLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FirebaseSignUpActivity.this, FirebaseLoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btForgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
