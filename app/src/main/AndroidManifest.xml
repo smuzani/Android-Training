@@ -63,7 +63,8 @@
             android:name=".activities.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".activities.FirebaseSignUpActivity" />
-        <activity android:name=".activities.FirebaseLoginActivity"></activity>
+        <activity android:name=".activities.FirebaseLoginActivity" />
+        <activity android:name=".activities.FirebaseForgotPasswordActivity"></activity>
     </application>
 
 </manifest>

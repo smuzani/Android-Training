@@ -50,5 +50,6 @@ public class MainActivity extends AppCompatActivity {
         links.add(new MainMenuLink("Lesson 3.2: Maps", MapsActivity.class));
         links.add(new MainMenuLink("Lesson 3.5: Firebase Signup", FirebaseSignUpActivity.class));
         links.add(new MainMenuLink("Lesson 3.6: Firebase Login", FirebaseLoginActivity.class));
+        links.add(new MainMenuLink("Lesson 3.7: Firebase Reset Password", FirebaseForgotPasswordActivity.class));
     }
 }

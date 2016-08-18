@@ -66,7 +66,8 @@ public class FirebaseSignUpActivity extends AppCompatActivity {
         btForgot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(FirebaseSignUpActivity.this, FirebaseForgotPasswordActivity.class);
+                startActivity(intent);
             }
         });
     }
