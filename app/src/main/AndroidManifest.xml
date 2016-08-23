@@ -65,7 +65,7 @@
         <activity android:name=".activities.FirebaseSignUpActivity" />
         <activity android:name=".activities.FirebaseLoginActivity" />
         <activity android:name=".activities.FirebaseForgotPasswordActivity" />
-        <activity android:name=".activities.FirebaseDatabase" />
+        <activity android:name=".activities.FirebaseDatabaseActivity" />
         <activity android:name=".activities.AddItemActivity"></activity>
     </application>
 

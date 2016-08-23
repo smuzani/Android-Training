@@ -30,7 +30,6 @@ public class NotificationActivity extends AppCompatActivity {
                 .setContentTitle("Don't forget to wake up!")
                 .setContentText("Time to wake up")
                 .setSmallIcon(R.drawable.alarm_clock)
-                .setAutoCancel(true)
                 .setContentIntent(contentIntent)
                 .build();
 
