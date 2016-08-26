@@ -1,6 +1,5 @@
 package com.muz.androidtraining.activities;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -23,7 +22,6 @@ import com.muz.androidtraining.models.Item;
 
 public class FirebaseDatabaseActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,18 +53,17 @@ public class FirebaseDatabaseActivity extends AppCompatActivity {
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user == null) {
-            Snackbar snackbar = Snackbar.make(recyclerView, "Please log on first", Snackbar.LENGTH_LONG);
+            Snackbar snackbar = Snackbar.make(recyclerView, "Please log on first", Snackbar.LENGTH_SHORT);
             snackbar.show();
         } else {
             String mUserId = user.getUid();
             Query query = mDatabase.child("items").child(mUserId);
-            pd = new ProgressDialog(FirebaseDatabaseActivity.this);
-            pd.setMessage("Loading…");
-            pd.show();
+            final Snackbar snackbar = Snackbar.make(recyclerView, "Downloading data…", Snackbar.LENGTH_INDEFINITE);
+            snackbar.show();
             FirebaseRecyclerAdapter<Item, DatabaseHolder> mAdapter = new FirebaseRecyclerAdapter<Item, DatabaseHolder>(Item.class, R.layout.row_layout, DatabaseHolder.class, query) {
                 @Override
                 protected void populateViewHolder(DatabaseHolder viewHolder, Item model, int position) {
-                    pd.dismiss();
+                    snackbar.dismiss();
                     viewHolder.tvItem.setText(model.itemName);
                     viewHolder.tvDesc.setText(model.itemDescription);
                     viewHolder.tvPlace.setText(model.itemPlace);
