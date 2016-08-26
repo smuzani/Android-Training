@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -23,6 +24,7 @@ public class FirebaseLoginActivity extends AppCompatActivity {
     TextInputEditText etPassword, etEmail;
     private FirebaseAuth auth;
     private ProgressDialog pd;
+    TextInputLayout tilEmail, tilPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class FirebaseLoginActivity extends AppCompatActivity {
         btLogin = (Button) findViewById(R.id.bt_login);
         etEmail = (TextInputEditText) findViewById(R.id.et_email);
         etPassword = (TextInputEditText) findViewById(R.id.et_password);
+        tilEmail = (TextInputLayout) findViewById(R.id.til_email);
+        tilPassword = (TextInputLayout) findViewById(R.id.til_password);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Log In");
@@ -41,11 +45,17 @@ public class FirebaseLoginActivity extends AppCompatActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String email = etEmail.getText().toString().trim();
+                final String password = etPassword.getText().toString().trim();
+
+                if (!validateForm(email, password)){
+                    return;
+                }
+
                 pd = new ProgressDialog(FirebaseLoginActivity.this);
                 pd.setMessage("Loading…");
                 pd.show();
-                String email = etEmail.getText().toString().trim();
-                final String password = etPassword.getText().toString().trim();
+
                 auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(FirebaseLoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -76,5 +86,22 @@ public class FirebaseLoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private boolean validateForm(String email, String password) {
+        boolean isValid = true;
+        tilEmail.setErrorEnabled(false);
+        tilPassword.setErrorEnabled(false);
+        if (email.equals("")){
+            tilEmail.setError("Please enter email");
+            isValid = false;
+        }
+
+        if (password.equals("")){
+            tilPassword.setError("Please enter password");
+            isValid = false;
+        }
+
+        return isValid;
     }
 }
