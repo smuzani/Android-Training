@@ -13,6 +13,8 @@ public class Item {
     public String itemDescription;
     public String itemPlace;
 
+    public Item(){}
+
     public Item(String itemName, String itemDescription, String itemPlace) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;

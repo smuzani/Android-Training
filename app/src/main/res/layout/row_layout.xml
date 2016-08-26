@@ -1,19 +1,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
     android:orientation="vertical">
     <TextView
         android:id="@+id/itemTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:text="Item"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
         />
     <TextView
         android:id="@+id/placeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0"
+        android:text="Place"
         style="@style/Base.TextAppearance.AppCompat.Caption"
         />
     <TextView
@@ -21,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:text="Desc"
+        style="@style/Base.TextAppearance.AppCompat.Body1"
         />
 </LinearLayout>

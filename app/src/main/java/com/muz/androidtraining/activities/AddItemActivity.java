@@ -1,9 +1,8 @@
 package com.muz.androidtraining.activities;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,10 +34,13 @@ public class AddItemActivity extends AppCompatActivity {
         itemDescriptionText = (EditText) findViewById(R.id.editText2);
         itemPlaceText = (EditText) findViewById(R.id.editText3);
         sendBtn = (Button) findViewById(R.id.button2);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String key = mDatabase.child("items").push().getKey();
+
                 Item newItem = new Item(itemNameText.getText().toString(), itemDescriptionText.getText().toString(), itemPlaceText.getText().toString());
                 Map<String, Object> itemValues = newItem.toMap();
                 Map<String, Object> childUpdates = new HashMap<>();
@@ -58,7 +60,5 @@ public class AddItemActivity extends AppCompatActivity {
 
             }
         });
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        mUserId = FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 }
