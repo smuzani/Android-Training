@@ -1,5 +1,6 @@
 package com.muz.androidtraining.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
@@ -21,6 +22,7 @@ public class FirebaseLoginActivity extends AppCompatActivity {
     Button btSignup, btForgot, btLogin;
     TextInputEditText etPassword, etEmail;
     private FirebaseAuth auth;
+    private ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +41,16 @@ public class FirebaseLoginActivity extends AppCompatActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pd = new ProgressDialog(FirebaseLoginActivity.this);
+                pd.setMessage("Loading…");
+                pd.show();
                 String email = etEmail.getText().toString().trim();
                 final String password = etPassword.getText().toString().trim();
                 auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(FirebaseLoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                pd.dismiss();
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(FirebaseLoginActivity.this, "Authentication failed: " + task.getException(), Toast.LENGTH_SHORT).show();
                                 } else {
