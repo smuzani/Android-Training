@@ -67,6 +67,19 @@
                 style="@style/Widget.AppCompat.Button.Colored"
                 />
 
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/>
+
             <Button
                 android:id="@+id/bt_forgot"
                 android:layout_width="match_parent"
