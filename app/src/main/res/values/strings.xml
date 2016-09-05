@@ -9,6 +9,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="fb_app_id">634716683354956</string>
+    <string name="oauth_web_id">427518248905-e46hkmd4eobtuviv356e9kom094prdq2.apps.googleusercontent.com</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
