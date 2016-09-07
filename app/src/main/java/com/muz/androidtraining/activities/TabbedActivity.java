@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.muz.androidtraining.R;
 import com.muz.androidtraining.adapters.TabPagerAdapter;
 import com.muz.androidtraining.fragments.CardContentFragment;
@@ -13,6 +14,8 @@ import com.muz.androidtraining.fragments.ListContentFragment;
 import com.muz.androidtraining.fragments.TileContentFragment;
 
 public class TabbedActivity extends AppCompatActivity {
+
+    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +36,7 @@ public class TabbedActivity extends AppCompatActivity {
         adapter.addFragment(new TileContentFragment(), "TileView");
         adapter.addFragment(new CardContentFragment(), "CardView");
         viewPager.setAdapter(adapter);
+
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 }

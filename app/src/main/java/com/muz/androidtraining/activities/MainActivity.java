@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.muz.androidtraining.adapters.MainPageListAdapter;
 
 import com.muz.androidtraining.R;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     Activity activity = this;
     List<MainMenuLink> links = new ArrayList<>();
+    FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +32,22 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ListView lv = (ListView) findViewById(R.id.lv);
         initListView();
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         lv.setAdapter(new MainPageListAdapter(activity, links));
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 MainMenuLink link = links.get(position);
+                Bundle bundle = new Bundle();
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, Integer.toString(position));
+                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, link.getTitle());
+                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "link");
+                firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
                 Intent intent = new Intent(activity, link.getActivityClass());
                 startActivity(intent);
             }
         });
+
     }
 
     private void initListView(){
